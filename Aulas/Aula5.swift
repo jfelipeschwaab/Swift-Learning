@@ -164,3 +164,8 @@ while guess != magicNum {
 
 print("You're right it was \(guess)!")
 
+var ast = ""
+for _ in 1...4 {
+  ast += "*"
+  print(ast)
+}
