@@ -121,3 +121,34 @@ func bookingTicket(passangerName : String = "João Felipe", seatClass : String =
 print(bookingTicket(timeOfDeparture : 9))
 print(bookingTicket(seatClass : "Business", timeOfDeparture : 9))
 
+//11. Variadic Parameters
+/*
+Um parâmetro "Variadic" é um parâmetro que aceita zero ou mais valores de um certo tipo, é útil quando
+precisamos passar mais de um valor para o parâmetro
+
+!!! Não pode ter mais de um parâmetro variadic em Swift
+*/
+func avgSongLength(times : Int...) -> Int {
+    var total = 0
+    for time in times {
+        total += time
+    }
+    return total/times.count
+}
+
+print("The average time of Eurovision Songs is \(avgSongLength(times: 183, 176, 180, 176, 184, 179, 181, 180, 172, 178))")
+
+//12. In-Out Parameters
+//parâmetros inout são parâmetros feitos para mudar o valor da variável que estamos colocando como argumento ao chamar a função
+// Visto que só podem ser variáveis, constantes ou literals não podem ser colocados visto que não podem ser alterados.
+var currentGeneratorState = "Off"
+
+func generators(powerOutage : Bool, state : inout String) {
+    if powerOutage == true {
+        state = "On"
+    } else {
+        state = "Off"
+    }
+}
+generators(powerOutage : true, state: &currentGeneratorState)
+print(currentGeneratorState)
